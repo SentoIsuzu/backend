@@ -1,0 +1,2 @@
+// aaaaaaaaa
+export default 'aaaa';
