@@ -6,17 +6,19 @@ interface IProps {
   a?: string;
 }
 
-class Login extends Component<IProps & FormComponentProps> {
+class LoginForm extends Component<IProps & FormComponentProps> {
     
   render() {
     const { getFieldDecorator } = this.props.form;
     return(
         <div className="particles">
             <div className="login">
-                `````
+                <div className="login-top">
+                  D2C赋能店
+                </div>
             </div>
         </div>
     );
   }
 }
-export default Form.create<IProps & FormComponentProps>()(Login);
+export default Form.create<IProps & FormComponentProps>()(LoginForm);
