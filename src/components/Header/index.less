@@ -1,0 +1,27 @@
+.header-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.header {
+  &-img {
+    width: 150px;
+  }
+  &-search {
+    margin-left: 10px;
+    flex:5;
+  }
+  &-opera{
+      color:rgba(255, 255, 255, 0.822);
+      font-size:16px;
+      margin:0;
+      li{
+          float: left;
+          margin-right:15px;
+          cursor:pointer;
+          &:hover{
+            color:#fff;
+          }
+      }
+  }
+}

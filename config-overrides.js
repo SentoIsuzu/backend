@@ -3,10 +3,11 @@ const {
   addBabelPlugin,
   fixBabelImports,
   addLessLoader,
+  addWebpackAlias
 } = require('customize-cra');
 const Merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
+const path = require("path");
 const env = process.env.NODE_ENV;
 const addImportAnt = libraryName =>
   fixBabelImports(libraryName, {
@@ -22,6 +23,12 @@ module.exports = override(
     javascriptEnabled: true,
     modifyVars: {},
   }),
+  addWebpackAlias({        
+    ["@src"]: path.resolve(__dirname, "./src"),        
+    ["@util"]: path.resolve(__dirname, "./src/util"),        
+    ["@components"]: path.resolve(__dirname, "./src/components"),
+    ["@assets"]: path.resolve(__dirname, "./src/assets"),  
+}),
   // 自定义更改
   config => {
     // 添加ts代码审查
@@ -49,7 +56,7 @@ module.exports = override(
         },
       });
     }
-    require('react-app-rewire-postcss')(config, {
+   /*  require('react-app-rewire-postcss')(config, {
       plugins: loader => [
         require('autoprefixer')({
           autoprefixer: {
@@ -57,7 +64,7 @@ module.exports = override(
           },
         }),
       ],
-    });
+    }); */
     return config;
   }
 );
